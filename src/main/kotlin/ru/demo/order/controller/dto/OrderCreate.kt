@@ -1,4 +1,4 @@
-package ru.demo.order.dto
+package ru.demo.order.controller.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import jakarta.persistence.Entity
@@ -10,12 +10,11 @@ import lombok.EqualsAndHashCode
 import java.util.Date
 
 @Data
-@Entity(name = "order")
 @EqualsAndHashCode
 data class OrderCreate(
     @Id
     @JsonProperty("orderId")
-    @GeneratedValue(strategy = GenerationType.UUID)
+    //@GeneratedValue(strategy = GenerationType.UUID)
     val orderId: Long,
     @JsonProperty("orderName")
     val orderName: String,
