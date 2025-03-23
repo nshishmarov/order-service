@@ -1,4 +1,4 @@
-package ru.demo.order.config
+package ru.demo.order.kafka.config
 
 import com.fasterxml.jackson.databind.JsonDeserializer
 import org.apache.kafka.clients.consumer.ConsumerConfig

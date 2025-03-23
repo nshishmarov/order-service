@@ -14,6 +14,8 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
     enabled: true
+  main:
+    allow-bean-definition-overriding: true
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
@@ -32,7 +34,12 @@ spring:
             non_contextual_creation: true
         format_sql: true
   kafka:
-    bootstrap-servers: http://localhost:29092
+    bootstrap-servers: localhost:29092
+#    topics:
+#      order-topic:
+#        name: order-topic
+#        partitions: 3
+#        replicas: 1
 
 logging:
   level:
