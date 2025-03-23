@@ -4,11 +4,11 @@ databaseChangeLog:
       author: nikita
       changes:
         - createTable:
-            tableName: order
+            tableName: orders
             columns:
               - column:
                   name: orderId
-                  type: uuid
+                  type: bigint
                   constraints:
                     primaryKey: true
                     nullable: false
