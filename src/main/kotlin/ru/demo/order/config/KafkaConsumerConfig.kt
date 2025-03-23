@@ -16,10 +16,11 @@ import ru.demo.order.controller.dto.Order
 class KafkaConsumerConfig {
 
     @Autowired
-    private lateinit var kafkaProps: KafkaProperties
+    private lateinit var kafakProperties: KafkaProperties
 
     private fun consumerFactory(): ConsumerFactory<String, Order> {
-        val config = kafkaProps.buildConsumerProperties()
+        val config = kafakProperties.buildConsumerProperties()
+        config[ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG] = kafakProperties.bootstrapServers
         config[ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG] = StringDeserializer::class.java
         config[ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG] = JsonDeserializer::class.java
         return DefaultKafkaConsumerFactory(config)
