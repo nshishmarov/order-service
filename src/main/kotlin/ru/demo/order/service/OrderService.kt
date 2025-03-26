@@ -15,14 +15,22 @@ class OrderService(
     val orderMapper: OrderMapper,
     val kafkaProducer: KafkaProducer
 ){
+    @Transactional
     fun getAllOrders() : List<OrderEntity>? = orderJpaRepository.findAll().toList()
 
+    @Transactional
     fun getOrderById(orderId: String) : OrderEntity? = orderJpaRepository.findById(orderId).getOrNull()
 
     @Transactional
     fun createOrder(order: Order) {
-        val orderEntity = orderMapper.orderToOrderCreate(order)
+        val orderEntity = orderMapper.orderToOrderEntity(order)
         orderJpaRepository.save(orderEntity)
         kafkaProducer.sendMessage(order, "order-topic")
     }
+
+    @Transactional
+    fun updateOrder(order: Order) = orderJpaRepository.save(orderMapper.orderToOrderEntity(order))
+
+    @Transactional
+    fun deleteOrder(orderId: String) = orderJpaRepository.deleteById(orderId)
 }
