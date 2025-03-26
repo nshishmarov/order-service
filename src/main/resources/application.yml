@@ -35,11 +35,14 @@ spring:
         format_sql: true
   kafka:
     bootstrap-servers: localhost:29092
-#    topics:
-#      order-topic:
-#        name: order-topic
-#        partitions: 3
-#        replicas: 1
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: ru.demo.order.kafka.serializer.OrderSerializer
+    topics:
+      order-topic:
+        name: order-topic
+        partitions: 1
+        replicas: 1
 
 logging:
   level:

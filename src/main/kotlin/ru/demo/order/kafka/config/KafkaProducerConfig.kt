@@ -1,6 +1,5 @@
 package ru.demo.order.kafka.config
 
-import com.fasterxml.jackson.databind.JsonSerializer
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.serialization.StringSerializer
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,6 +10,7 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.core.ProducerFactory
 import ru.demo.order.controller.dto.Order
+import ru.demo.order.kafka.serializer.OrderSerializer
 
 @Configuration
 class KafkaProducerConfig {
@@ -23,7 +23,7 @@ class KafkaProducerConfig {
         val config = kafkaProperties.buildProducerProperties()
         config[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = kafkaProperties.bootstrapServers
         config[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
-        config[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = JsonSerializer::class.java
+        config[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = OrderSerializer::class.java
         return DefaultKafkaProducerFactory(config)
     }
 

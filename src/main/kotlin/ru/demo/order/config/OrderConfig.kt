@@ -7,5 +7,4 @@ import org.springframework.kafka.annotation.EnableKafka
 @Configuration
 @EnableKafka
 @EnableJpaRepositories(basePackages = ["ru.demo.order.repository"])
-class OrderConfig {
-}
+class OrderConfig
