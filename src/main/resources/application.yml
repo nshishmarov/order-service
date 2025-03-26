@@ -14,6 +14,8 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
     enabled: true
+  main:
+    allow-bean-definition-overriding: true
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
@@ -31,6 +33,16 @@ spring:
           lob:
             non_contextual_creation: true
         format_sql: true
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: ru.demo.order.kafka.serializer.OrderSerializer
+    topics:
+      order-topic:
+        name: order-topic
+        partitions: 1
+        replicas: 1
 
 logging:
   level:

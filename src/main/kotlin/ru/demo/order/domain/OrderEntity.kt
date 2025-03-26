@@ -10,6 +10,7 @@ import jakarta.persistence.Table
 import lombok.EqualsAndHashCode
 import lombok.ToString
 import java.time.LocalDate
+import java.util.Date
 
 @Entity
 @Table(name = "orders")
@@ -26,5 +27,5 @@ data class OrderEntity (
     val orderName: String,
     @JsonProperty("orderDate")
     @Column(name = "\"orderDate\"", columnDefinition = "datetime")
-    val orderDate: LocalDate
+    val orderDate: Date
 )
