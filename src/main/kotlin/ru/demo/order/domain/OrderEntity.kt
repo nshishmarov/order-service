@@ -19,7 +19,6 @@ import java.util.Date
 data class OrderEntity (
     @Id
     @JsonProperty("orderId")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "\"orderId\"", columnDefinition = "numeric(15,0)")
     val orderId: Long,
     @Column(name = "\"orderName\"", columnDefinition = "varchar(100)")

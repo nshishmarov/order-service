@@ -43,6 +43,8 @@ dependencies {
 	implementation("org.mapstruct:mapstruct:1.6.3")
 	annotationProcessor("org.mapstruct:mapstruct-processor:1.6.3")
 	kapt("org.mapstruct:mapstruct-processor:1.5.5.Final")
+	implementation("io.github.microutils:kotlin-logging-jvm:2.0.11")
+	implementation("org.apache.kafka:kafka-streams")
 }
 
 kotlin {

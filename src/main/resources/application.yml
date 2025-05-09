@@ -6,7 +6,7 @@ spring:
     name: order-service
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres_db?currentSchema=public
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=public
     username: postgres
     password: postgres
     hikari:
@@ -35,14 +35,6 @@ spring:
         format_sql: true
   kafka:
     bootstrap-servers: localhost:29092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: ru.demo.order.kafka.serializer.OrderSerializer
-    topics:
-      order-topic:
-        name: order-topic
-        partitions: 1
-        replicas: 1
 
 logging:
   level:

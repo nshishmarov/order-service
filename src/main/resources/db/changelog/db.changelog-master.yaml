@@ -1,5 +1,13 @@
 databaseChangeLog:
   - changeSet:
+      id: create_orders_seq
+      author: nikita
+      changes:
+        - createSequence:
+            sequenceName: orders_seq
+            startValue: 1
+            incrementBy: 1
+  - changeSet:
       id: 1
       author: nikita
       changes:
