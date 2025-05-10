@@ -18,5 +18,7 @@ data class Order (
     val orderName: String,
     @JsonProperty("orderDate")
     @JsonFormat(pattern = "dd.MM.yyyy", shape = JsonFormat.Shape.STRING)
-    val orderDate: Date
+    val orderDate: Date,
+    @JsonProperty("status")
+    val orderStatus: String
 )

@@ -10,6 +10,7 @@ import java.io.NotSerializableException
 @AllArgsConstructor
 @NoArgsConstructor
 open class OrderSerializer : Serializer<Order> {
+
     private val objectMapper = ObjectMapper()
 
     override fun serialize(topic: String?, order: Order?): ByteArray =

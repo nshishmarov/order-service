@@ -4,7 +4,7 @@ import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 import ru.demo.order.controller.dto.Order
 import ru.demo.order.domain.OrderEntity
-import ru.demo.order.kafka.producer.KafkaProducer
+import ru.demo.order.kafka.producer.OrderProducer
 import ru.demo.order.mapper.OrderMapper
 import ru.demo.order.repository.OrderJpaRepository
 import kotlin.jvm.optionals.getOrNull
@@ -13,7 +13,7 @@ import kotlin.jvm.optionals.getOrNull
 class OrderService(
     val orderJpaRepository: OrderJpaRepository,
     val orderMapper: OrderMapper,
-    val kafkaProducer: KafkaProducer
+    val kafkaProducer: OrderProducer
 ){
     @Transactional
     fun getAllOrders() : List<OrderEntity>? = orderJpaRepository.findAll().toList()
